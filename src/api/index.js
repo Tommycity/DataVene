@@ -74,14 +74,14 @@ export const updateBlogPost = async (id, values) => {
   const result = await mutationRequest(
     EDIT_BLOG_POST.replace("{id}", id),
     "put",
-    values
+    values,
   );
   return result;
 };
 export const deleteBlogPost = async (id) => {
   const result = await mutationRequest(
     DELETE_BLOG_POST.replace("{id}", id),
-    "delete"
+    "delete",
   );
   return result;
 };
@@ -92,7 +92,7 @@ export const fetchAllBlogPost = () => {
 export const fetchSingleBlogPost = (id) => {
   const { data, error, loading, mutate } = useSWR(
     `${FETCH_SINGLE_BLOG_POST}/${id}`,
-    fetcher
+    fetcher,
   );
   return { data, error, loading, mutate };
 };
@@ -106,14 +106,14 @@ export const updateProject = async (id, values) => {
   const result = await mutationRequest(
     EDIT_PROJECTS.replace("{id}", id),
     "put",
-    values
+    values,
   );
   return result;
 };
 export const deleteProject = async (id) => {
   const result = await mutationRequest(
     DELETE_PROJECTS.replace("{id}", id),
-    "delete"
+    "delete",
   );
   return result;
 };
@@ -124,7 +124,7 @@ export const fetchAllProjects = () => {
 export const fetchSingleProject = (id) => {
   const { data, error, loading, mutate } = useSWR(
     `${FETCH_SINGLE_PROJECTS}/${id}`,
-    fetcher
+    fetcher,
   );
   return { data, error, loading, mutate };
 };
@@ -138,21 +138,21 @@ export const updateExperience = async (id, values) => {
   const result = await mutationRequest(
     EDIT_EXPERIENCE.replace("{id}", id),
     "put",
-    values
+    values,
   );
   return result;
 };
 export const fetchAllExperience = () => {
   const { data, error, loading, mutate } = useSWR(
     FETCH_ALL_EXPERIENCE,
-    fetcher
+    fetcher,
   );
   return { data, error, loading, mutate };
 };
 export const deleteExperience = async (id) => {
   const result = await mutationRequest(
     DELETE_EXPERIENCE.replace("{id}", id),
-    "delete"
+    "delete",
   );
   return result;
 };
@@ -166,7 +166,7 @@ export const updateEducation = async (id, values) => {
   const result = await mutationRequest(
     EDIT_EDUCATION.replace("{id}", id),
     "put",
-    values
+    values,
   );
   return result;
 };
@@ -177,7 +177,7 @@ export const fetchAllEducation = () => {
 export const deleteEducation = async (id) => {
   const result = await mutationRequest(
     DELETE_EDUCATION.replace("{id}", id),
-    "delete"
+    "delete",
   );
   return result;
 };
@@ -191,21 +191,18 @@ export const updateAbout = async (id, values) => {
   const result = await mutationRequest(
     EDIT_ABOUT.replace("{id}", id),
     "put",
-    values
+    values,
   );
   return result;
 };
 export const fetchAllAbout = () => {
-  const { data, error, loading, mutate } = useSWR(
-    FETCH_ALL_ABOUT,
-    fetcher
-  );
+  const { data, error, loading, mutate } = useSWR(FETCH_ALL_ABOUT, fetcher);
   return { data, error, loading, mutate };
 };
 export const deleteAbout = async (id) => {
   const result = await mutationRequest(
     DELETE_ABOUT.replace("{id}", id),
-    "delete"
+    "delete",
   );
   return result;
 };
@@ -217,9 +214,12 @@ export const addNewSkill = async (values) => {
 };
 export const updateSkill = async (id, values) => {
   const result = await mutationRequest(
-    EDIT_SKILL.replace("{id}", id),
+    EDIT_SKILL.replace("{skillId}", id).replace(
+      "{publicId}",
+      values?.avatarImgPublicId?.[0] || "",
+    ),
     "put",
-    values
+    values,
   );
   return result;
 };
@@ -233,7 +233,7 @@ export const deleteSkill = async (id, publicId) => {
     "delete",
     null,
     false,
-    { publicId }
+    { publicId },
   );
   return result;
 };

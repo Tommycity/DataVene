@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Herosection from "../../components/home/Herosection";
 import { fetchAllSkill } from "../../api";
@@ -72,28 +71,51 @@ const HomePage = () => {
         </section>
 
         {/* skill marquee section */}
-        <section className="">
-          <marquee scrollamount="10" scrolldelay="0">
-            <div className="w-full flex gap-[25px] py-2 ">
-              {flattenedData?.map((item, i) => (
-                <div
-                  className="col-span-1 w-[40.32px] h-[40.29px] flex justify-center items-center"
-                  key={i}
-                  style={{ boxShadow: "2px 2px 8px #00000057" }}
-                >
-                  <img src={item?.avatarImg} alt="" className="h-full" />
-                </div>
-              ))}
-            </div>
-          </marquee>
+
+        <section className="overflow-hidden relative w-full">
+          <div className="flex gap-[30px] animate-scroll">
+            {/* First set of images */}
+            {flattenedData?.map((item, i) => (
+              <div
+                className="w-[41px] h-[40.29px] flex justify-center items-center flex-shrink-0"
+                key={`first-${i}`}
+                // style={{ boxShadow: "2px 2px 8px #00000057" }}
+              >
+                <img
+                  src={item?.avatarImg}
+                  alt=""
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ))}
+            {/* Duplicate set for seamless loop */}
+            {/* {flattenedData?.map((item, i) => (
+              <div
+                className="w-[150px] h-[40.29px] flex justify-center items-center flex-shrink-0"
+                key={`second-${i}`}
+                style={{ boxShadow: "2px 2px 8px #00000057" }}
+              >
+                <img
+                  src={item?.avatarImg}
+                  alt=""
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ))} */}
+          </div>
         </section>
 
         {/* projects section */}
         <section className="flex flex-col gap-[40px]">
-          <h2 className="text-lg text-[#0E0E0E] font-medium uppercase">Selected Works</h2>
+          <h2 className="text-lg text-[#0E0E0E] font-medium uppercase">
+            Selected Works
+          </h2>
           <Projects />
           <div className="flex justify-center">
-            <ViewMoreButtonSec title="View Projects" onClick={()=>navigate("/projects")}/>
+            <ViewMoreButtonSec
+              title="View Projects"
+              onClick={() => navigate("/projects")}
+            />
           </div>
         </section>
 
@@ -102,13 +124,18 @@ const HomePage = () => {
           <h2 className="text-lg text-[#0E0E0E]  uppercase">BLOGPOSTS</h2>
           <BlogCard />
           <div className="flex justify-center">
-            <ViewMoreButtonSec title="Read More" onClick={()=>navigate("/blogs")}/>
+            <ViewMoreButtonSec
+              title="Read More"
+              onClick={() => navigate("/blogs")}
+            />
           </div>
         </section>
 
         {/* Get in touch section */}
         <section className="flex items-center justify-between w-full">
-          <h1 className="w-[60%] text-[70px] text-primary-deep font-semibold">Get in touch</h1>
+          <h1 className="w-[60%] text-[70px] text-primary-deep font-semibold">
+            Get in touch
+          </h1>
           <div className="w-[40%] flex flex-col gap-[24px]">
             <div className="flex flex-col text-lg text-primary-deep font-semibold">
               <span className="">I'd love to hear from you!</span>
@@ -116,7 +143,7 @@ const HomePage = () => {
                 have a project in mind, or just want to chat about an idea?
               </span>
             </div>
-            <ViewMoreButtonPrim title="Feel Free to Drop a Line"/>
+            <ViewMoreButtonPrim title="Feel Free to Drop a Line" />
           </div>
         </section>
 

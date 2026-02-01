@@ -28,7 +28,7 @@ const AboutPage = () => {
           <div className="w-[50%] flex gap-[15px]">
             <div className="w-[40%]">
               <img
-                src="/public/images/new-slanted-arrow.png"
+                src="/images/new-slanted-arrow.png"
                 alt=""
                 className="mt-2"
               />
@@ -59,7 +59,7 @@ const AboutPage = () => {
           {/* rightside image */}
           <div className="w-[50%] h-[533px]">
             <img
-              src="/public/images/AYEWA 1B.jpg"
+              src="/images/AYEWA 1B.jpg"
               alt=""
               className="object-cover w-full h-full"
             />

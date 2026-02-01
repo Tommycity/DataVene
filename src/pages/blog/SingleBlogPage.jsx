@@ -68,7 +68,7 @@ const SingleBlogPage = () => {
             <div className="w-fit flex items-center gap-[21px]">
               <div className="w-[72px] h-[72px] rounded-full">
                 <img
-                  src="/public/images/author.png"
+                  src="/images/author.png"
                   alt=""
                   className="w-full h-full object-cover"
                 />
@@ -88,20 +88,20 @@ const SingleBlogPage = () => {
               <div className="flex gap-4">
                 <button className="border border-primary-deep rounded-full text-lg py-[12px] px-[32px] text-primary-deep w-fit hover:bg-primary-deep hover:text-white transition-colors duration-200 flex items-center gap-2">
                   <span>
-                    <img src="/public/images/like.png" alt="" />
+                    <img src="/images/like.png" alt="" />
                   </span>
                   <span>Like</span>
                 </button>
                 <button className="border border-primary-deep rounded-full text-lg py-[12px] px-[32px] text-primary-deep w-fit hover:bg-primary-deep hover:text-white transition-colors duration-200 flex items-center gap-2">
                   <span>
-                    <img src="/public/images/comment.png" alt="" />
+                    <img src="/images/comment.png" alt="" />
                   </span>
                   <span>Comment</span>
                 </button>
               </div>
               <button className="border border-primary-deep rounded-full text-lg py-[12px] px-[32px] text-primary-deep w-fit hover:bg-primary-deep hover:text-white transition-colors duration-200 flex items-center gap-2">
                 <span>
-                  <img src="/public/images/share.png" alt="" />
+                  <img src="/images/share.png" alt="" />
                 </span>
                 <span>Share</span>
               </button>

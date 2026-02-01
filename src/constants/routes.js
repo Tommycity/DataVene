@@ -19,30 +19,26 @@ export const EDIT_PROJECTS = "/project/updatedProject/{id}";
 export const DELETE_PROJECTS = "/project/deletedProject/{id}";
 export const FETCH_SINGLE_PROJECTS = "/project/getSingleProject";
 
-
 //Experience
 export const FETCH_ALL_EXPERIENCE = "/experience/get-experienceInfo";
 export const ADD_EXPERIENCE = "/experience/create";
 export const EDIT_EXPERIENCE = "/experience/updated-experienceInfo/{id}";
-export const DELETE_EXPERIENCE = "/experience/delete-eperience/{id}"
+export const DELETE_EXPERIENCE = "/experience/delete-eperience/{id}";
 
 //Education
 export const FETCH_ALL_EDUCATION = "/education/get-educationInfo";
 export const ADD_EDUCATION = "/education/get-educationInfo";
 export const EDIT_EDUCATION = "/education/updated-educationInfo/{id}";
-export const DELETE_EDUCATION = "/education/updated-educationInfo/{id}"
+export const DELETE_EDUCATION = "/education/updated-educationInfo/{id}";
 
 //About
 export const FETCH_ALL_ABOUT = "/about/get-aboutInfo";
 export const ADD_ABOUT = "/about/about-info";
 export const EDIT_ABOUT = "/about/updated-aboutInfo/{id}";
-export const DELETE_ABOUT = "/about/deleted-aboutInfo/{id}"
-
+export const DELETE_ABOUT = "/about/deleted-aboutInfo/{id}";
 
 //skill
 export const FETCH_ALL_SKILL = "/skill/get-skill";
 export const ADD_SKILL = "/skill/create";
-export const EDIT_SKILL = "/skill/updated-skill/{id}";
-export const DELETE_SKILL = "/skill/delete-avatar/{skillId}"
-
-
+export const EDIT_SKILL = "/skill/update-avatar/{skillId}/{publicId}";
+export const DELETE_SKILL = "/skill/delete-avatar/{skillId}";

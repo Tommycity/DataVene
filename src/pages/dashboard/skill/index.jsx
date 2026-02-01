@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import useSWR from "swr";
-import {
-  FETCH_ALL_SKILL,
-} from "../../../constants/routes";
+import { FETCH_ALL_SKILL } from "../../../constants/routes";
 import { fetcher } from "../../../api/fetcher";
 import { successMessage, errorMessage } from "../../../utils/helpers";
 import Table from "../../../components/globals/Table";
@@ -13,6 +11,7 @@ import SkillRowTemplate from "../../../components/admin-component/skill/skill";
 const SkillPage = () => {
   const navigate = useNavigate();
   const { data, error, mutate } = useSWR(FETCH_ALL_SKILL, fetcher);
+  console.log("Skill data:", data);
 
   if (error) return <div>Error loading personal info.</div>;
   if (!data) return <div>Loading...</div>;
@@ -20,17 +19,10 @@ const SkillPage = () => {
   /// Flatten the data so each image gets its own row
   const flattenedData = data.flatMap((skill) => {
     // If no images, return the skill with a placeholder
-    if (!skill.avatarImg || skill.avatarImg.length === 0) {
-      return [
-        {
-          ...skill,
-          avatarImg: null, // or a placeholder image URL
-          avatarImgPublicId: null,
-          imageIndex: 0,
-          originalSkillId: skill._id,
-        },
-      ];
-    }
+    // if (!skill.avatarImg || skill.avatarImg.length === 0) {
+    //   return [
+    //   ];
+    // }
 
     // If has images, map each one
     return skill.avatarImg.map((img, index) => ({
@@ -54,18 +46,42 @@ const SkillPage = () => {
     if (!window.confirm("Are you sure you want to delete this item?")) return;
 
     try {
-      const res = await deleteSkill(id, publicId);
-      if (res?.status === 200) {
-        successMessage(res?.data?.message || "Deleted successfully");
+      // Optimistic update: Remove the item from UI immediately
+      const updatedData = data
+        .map((skill) => {
+          if (skill._id === id) {
+            return {
+              ...skill,
+              avatarImg: skill.avatarImg.filter(
+                (_, idx) => skill.avatarImgPublicId[idx] !== publicId,
+              ),
+              avatarImgPublicId: skill.avatarImgPublicId.filter(
+                (pid) => pid !== publicId,
+              ),
+            };
+          }
+          return skill;
+        })
+        .filter((skill) => skill.avatarImg && skill.avatarImg.length > 0);
 
-        // Refetch the data after deletion instead of manual filtering
+      mutate(updatedData, false); // Update UI without revalidating
+
+      const res = await deleteSkill(id, publicId);
+      if (res?.status === 200 || res?.status === 201) {
+        successMessage(res?.data?.message || "Deleted successfully");
+        // Revalidate with fresh data from server
         mutate();
       } else {
-        errorMessage(res?.data?.error || "Delete failed");
+        errorMessage(res?.data?.error || res?.data?.message || "Delete failed");
+        console.error("Delete response:", res);
+        // Revert on failure
+        mutate();
       }
     } catch (err) {
       console.error("Delete error:", err);
       errorMessage("Delete failed");
+      // Revert on error
+      mutate();
     }
   };
 

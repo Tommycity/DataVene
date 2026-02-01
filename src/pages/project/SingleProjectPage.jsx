@@ -59,7 +59,7 @@ const SingleProjectPage = () => {
             <div className="w-fit flex items-center gap-[21px]">
               <div className="w-[72px] h-[72px] rounded-full">
                 <img
-                  src="/public/images/author.png"
+                  src="/images/author.png"
                   alt=""
                   className="w-full h-full object-cover"
                 />

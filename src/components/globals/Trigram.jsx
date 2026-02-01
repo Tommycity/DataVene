@@ -50,7 +50,7 @@ const Trigram = () => {
             className="rounded-full bg-primary-light p-[16px] flex items-center w-fit justify-self-end cursor-pointer hover:opacity-80 transition-opacity"
             onClick={() => setActiveMenu(!activeMenu)}
           >
-            <img src="/public/images/cancel.png" alt="Close" />
+            <img src="/images/cancel.png" alt="Close" />
           </div>
 
           {/* Menu section */}

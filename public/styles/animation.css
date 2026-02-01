@@ -80,3 +80,23 @@
 .animate-fadeIn {
   animation: fadeIn 0.2s ease-out;
 }
+
+
+/* Add to your global CSS file */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  animation: scroll 5s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused; /* Optional: pause on hover */
+}

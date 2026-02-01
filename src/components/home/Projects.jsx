@@ -45,11 +45,7 @@ export const Projects = ({ searchQuery = "" }) => {
               <div className="w-[90%] bg-[#53535366] h-[1px]"></div>
 
               <div className="text-lg text-primary-light font-medium leading-[28px] -tracking-[4%] text-justify group-hover:text-primary-deep ">
-                {/* {item?.projectContent?.projectSubContent} */}
-                {/* <RichTextDisplay
-                content={item?.projectContent?.projectSubContent}
-                maxLength={100}
-              /> */}
+                
                 {item?.subTitle}
               </div>
             </div>

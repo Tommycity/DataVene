@@ -23,7 +23,7 @@ const ProjectPage = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4">
             <img
-              src="/public/images/new-slanted-arrow.png"
+              src="/images/new-slanted-arrow.png"
               alt=""
               className="mb-6 h-8"
             />
