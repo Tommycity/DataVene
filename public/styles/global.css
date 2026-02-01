@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-primary-deep: #0E0E0E;
+  --color-primary-light: #535353;
+  --color-secondary-deep: #dc0000;
+  --color-secondary-light: #ff3838;
+  --color-gray-light: #dddddd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  color: #fff;
+}
+
+.home-bg {
+  background: linear-gradient(to left, #050e3c 85%, #ff3838 15%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.expanded-arrow-button {
+  position: relative;
+  z-index: 100;
+}
+
+.expanded-arrow-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%; /* height of the circle */
+  width: 55px; /* initial small width */
+  background-color: #ff3838;
+  border-radius: 50%;
+  transition: width 0.3s ease;
+  z-index: -1; /* place it behind the button text */
+}
+.expanded-arrow-button:hover:after {
+  width: 100%;
+  border-radius: 25px;
+}
+
+.expanded-sidebar-button {
+  position: relative;
+  z-index: 100;
+}
+
+.expanded-sidebar-button::after {
+  content: "";
+  position: absolute;
+  font-size: 16px;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  background-color: #ff3838;
+  border-radius: 35px;
+  z-index: -1;
+  transition: width 0.3s ease;
+}
+.expanded-sidebar-button:hover:after {
+  content: "";
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  width: 100%;
+  border-radius: 35px;
+  transition: width 0.3s ease;
+}
+
+/* admin css */
+.primary-input {
+  @apply rounded-sm bg-transparent border-[1px] border-gray-light p-2 focus:outline-none focus:border-secondary-light;
+}
+
+.error {
+  @apply text-red-400 text-xs;
+}
+
+/* .primary-input {
+  @apply rounded-sm bg-transparent border-[1px];
+} */
+.primary-btn {
+  @apply bg-secondary-light text-center text-gray-light hover:scale-110 ease-in duration-200 rounded-md cursor-pointer;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: #f8f9fa6d;
+}
