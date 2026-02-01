@@ -3,7 +3,7 @@ import { fetchAllBlogPost } from "../../api";
 import { BlogCard } from "../../components/home/BlogCard";
 import SearchInput from "../../components/form/SearchInput";
 import UserNavbar from "../../components/globals/UserNavbar";
-import Trigram from "../../components/globals/trigram";
+import Trigram from "../../components/globals/TrigramUpdated";
 import Footer from "../../components/globals/Footer";
 import ViewMoreButtonSec from "../../components/globals/ViewMoreBtnSec";
 
@@ -41,7 +41,7 @@ const BlogPage = () => {
         <BlogCard searchQuery={searchQuery} />
 
         <div className="flex items-center justify-center mt-8">
-          <ViewMoreButtonSec title="Load More Blog" arrowDown/>
+          <ViewMoreButtonSec title="Load More Blog" arrowDown />
         </div>
       </div>
       <Footer />

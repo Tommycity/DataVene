@@ -1,12 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchSingleBlogPost } from "../../api";
-import { MdArrowBack } from "react-icons/md";
 import RichTextDisplay from "../../components/form/RichTextDisplay";
 import UserNavbar from "../../components/globals/UserNavbar";
-import Trigram from "../../components/globals/trigram";
+import Trigram from "../../components/globals/TrigramUpdated";
 import ViewMoreButtonSec from "../../components/globals/ViewMoreBtnSec";
 import FormattedDateTime from "../../utils/FormattedDateTime";
-import SmartLinkButtons from "../../utils/LinkSorting";
 import Footer from "../../components/globals/Footer";
 
 const SingleBlogPage = () => {
@@ -18,9 +16,9 @@ const SingleBlogPage = () => {
   // Function to split HTML content at a specific paragraph
   const splitContentAtImage = (html, paragraphIndex = 2) => {
     const paragraphs = html.split("</p>");
-    const firstPart = paragraphs
-      .slice(0, paragraphIndex)
-      .join("</p>") + (paragraphIndex > 0 ? "</p>" : "");
+    const firstPart =
+      paragraphs.slice(0, paragraphIndex).join("</p>") +
+      (paragraphIndex > 0 ? "</p>" : "");
     const secondPart = paragraphs.slice(paragraphIndex).join("</p>");
     return { firstPart, secondPart };
   };
@@ -105,14 +103,16 @@ const SingleBlogPage = () => {
                 </span>
                 <span>Share</span>
               </button>
-
             </div>
 
             <div className="text-[18px]">
               {data?.blogContent?.blogSubContent && (
                 <>
                   <RichTextDisplay
-                    content={splitContentAtImage(data?.blogContent?.blogSubContent, 2).firstPart}
+                    content={
+                      splitContentAtImage(data?.blogContent?.blogSubContent, 2)
+                        .firstPart
+                    }
                     textColor="#0e0e0e"
                   />
 
@@ -128,7 +128,10 @@ const SingleBlogPage = () => {
                   )}
 
                   <RichTextDisplay
-                    content={splitContentAtImage(data?.blogContent?.blogSubContent, 2).secondPart}
+                    content={
+                      splitContentAtImage(data?.blogContent?.blogSubContent, 2)
+                        .secondPart
+                    }
                     textColor="#0e0e0e"
                   />
                 </>

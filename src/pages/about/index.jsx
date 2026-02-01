@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { fetchAllAbout } from "../../api";
-import Trigram from "../../components/globals/trigram";
+import Trigram from "../../components/globals/TrigramUpdated";
 import UserNavbar from "../../components/globals/UserNavbar";
 import ViewMoreButtonPrim from "../../components/globals/ViewMoreBtnPrim";
 import { IoMdArrowDropdown } from "react-icons/io";

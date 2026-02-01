@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Projects } from "../../components/home/Projects";
 import Footer from "../../components/globals/Footer";
 import UserNavbar from "../../components/globals/UserNavbar";
-import Trigram from "../../components/globals/trigram";
+import Trigram from "../../components/globals/TrigramUpdated";
 import SearchInput from "../../components/form/SearchInput";
 import ViewMoreButtonSec from "../../components/globals/ViewMoreBtnSec";
 import ViewMoreButtonPrim from "../../components/globals/ViewMoreBtnPrim";
@@ -39,7 +39,7 @@ const ProjectPage = () => {
         <Projects searchQuery={searchQuery} />
 
         <div className="flex items-center justify-center">
-          <ViewMoreButtonSec title="Load More Projects" slantedbg/>
+          <ViewMoreButtonSec title="Load More Projects" slantedbg />
         </div>
 
         <h1 className="text-[70px] text-center font-medium text-primary-deep">

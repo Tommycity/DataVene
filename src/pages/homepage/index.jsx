@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Herosection from "../../components/home/Herosection";
 import { fetchAllSkill } from "../../api";
 import { Projects } from "../../components/home/Projects";
-import Trigram from "../../components/globals/trigram";
+import Trigram from "../../components/globals/TrigramUpdated";
 import ViewMoreButtonPrim from "../../components/globals/ViewMoreBtnPrim";
 import ViewMoreButtonSec from "../../components/globals/ViewMoreBtnSec";
 import { BlogCard } from "../../components/home/BlogCard";

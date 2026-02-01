@@ -3,7 +3,7 @@ import { fetchSingleProject } from "../../api";
 import RichTextDisplay from "../../components/form/RichTextDisplay";
 import ViewMoreButtonSec from "../../components/globals/ViewMoreBtnSec";
 import UserNavbar from "../../components/globals/UserNavbar";
-import Trigram from "../../components/globals/trigram";
+import Trigram from "../../components/globals/TrigramUpdated";
 import FormattedDateTime from "../../utils/FormattedDateTime";
 import Footer from "../../components/globals/Footer";
 import SmartLinkButtons from "../../utils/LinkSorting";
