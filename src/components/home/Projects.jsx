@@ -56,7 +56,7 @@ export const Projects = ({ searchQuery = "" }) => {
             {item?.projectStack?.map((stack, index) => (
               <span
                 key={index}
-                className="border-[1px] text-[12px] text-primary-light group-hover:text-primary-deep  w-fit rounded-lg border-primary-light py-[8px] px-[12px]"
+                className="border-[1px] text-[12px] text-primary-light group-hover:text-primary-deep w-fit rounded-lg border-primary-light py-[8px] px-[12px]"
               >
                 {stack}
               </span>

@@ -78,4 +78,15 @@ export const sidebarData = [
       },
     ],
   },
+  {
+    title: "Testing",
+    icon: "FaShoppingBag",
+    link: "/testing",
+    children: [
+      {
+        title: "blogtes",
+        link: "/create-blog",
+      },
+    ],
+  },
 ];

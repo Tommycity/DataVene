@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "../public/styles/global.css";
+import "../public/styles/SubstackStyleEditor.css"
+import "../public/styles/BlogPost.css"
 import HomePage from "./pages/homepage";
 import AboutPage from "./pages/about";
 import MainLayout from "./layouts/MainLayout";
@@ -23,6 +25,7 @@ import AboutPageAdmin from "./pages/dashboard/about";
 import AddAbout from "./pages/dashboard/about/AddAbout";
 import SkillPage from "./pages/dashboard/skill";
 import AddSkill from "./pages/dashboard/skill/AddSkill";
+import CreateBlogPost from "./components/test/CreateBlogPost";
 
 function App() {
   return (
@@ -67,6 +70,7 @@ function App() {
             <Route path="/add-about" element={<AddAbout />} />
             <Route path="/all-skills" element={<SkillPage />} />
             <Route path="/add-skill" element={<AddSkill />} />
+            <Route path="/create-blog" element={<CreateBlogPost />} />
           </Route>
         </Routes>
       </BrowserRouter>
